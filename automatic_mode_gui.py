@@ -61,6 +61,10 @@ class Tkapp(Tkinter.Tk):
                 command=self.remove_last)
         remove_button.grid(column=11,row=4,sticky="W")
 
+        start_button = Tkinter.Button(self,text=u"START SCHEDULE",
+                command=self.start_schedule,bg="red")
+        start_button.grid(column=11, row=5,sticky="W")
+
 
         self.entryVariable = Tkinter.StringVar()
         self.entry = Tkinter.Entry(self,textvariable=self.entryVariable)
@@ -71,7 +75,7 @@ class Tkapp(Tkinter.Tk):
 
         self.labelVariable = Tkinter.StringVar()
         label = Tkinter.Label(self,textvariable=self.labelVariable,
-                anchor="w",fg="white",bg="blue",justify=Tkinter.LEFT)
+                anchor="w",fg="white",bg="grey",justify=Tkinter.LEFT)
         label.grid(column=0,row=5,columnspan=5,sticky="EW")
         self.labelVariable.set(u"")
 
@@ -111,6 +115,9 @@ class Tkapp(Tkinter.Tk):
         for i in tmp:
             updated += i+"\n"
         self.labelVariable.set(updated.rstrip("\n"))
+
+    def start_schedule(self):
+        pass
 
 if __name__ == "__main__":
     app = Tkapp(None)
